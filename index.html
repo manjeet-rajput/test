@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="btn()">Genrate OTP</button><br><br>
+    <h1 id="otp"></h1>
+    <input type="text" placeholder="enter otp" id="inp">
+    <button type="button" onclick="login()">login</button>
+
+</body>
+    <script>
+        debugger
+        function btn(){
+            var num='01233456789';
+            var gnrtotp ='';
+            for(i=0 ;i<6; i++){
+                gnrtotp += num[Math.floor(Math.random() * 10)];
+            }
+            document.getElementById('otp').innerHTML=gnrtotp;
+            localStorage.setItem('ab',gnrtotp)
+        }
+       function login(){
+       var a= document.getElementById('inp').value;
+        var b=localStorage.getItem('ab');
+        if(a==b){
+            alert('success full login')
+        }
+        else{
+            alert('wrong')
+        }
+       }
+        
+        
+    </script>
+</html>
